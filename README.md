@@ -43,24 +43,26 @@ Terraform version 1.3.7 or later
 AWS CLI
 kubectl
 AWS IAM Authenticator
-Usage
-The Terraform module can be invoked using the following code:
 
-module "eks" {
-  source = "terraform-aws-modules/eks/aws"
+commands:
+1.terraform init
 
-  cluster_name      = "my-eks-cluster"
-  subnets           = ["subnet-0xxxxx", "subnet-1yyyyy", "subnet-2zzzzz"]
-  tags              = {
-    Terraform   = "true",
-    Environment = "dev",
-  }
-}
+terraform init does is validate and configure the configuration’s backend if present. If that backend changes, then you’ll have to run terraform init again before doing other terraform commands like plan or apply.
 
-Variables
-cluster_name (string): The name of the EKS cluster.
-subnets (list): A list of subnet IDs in which to create the EKS cluster.
-tags (map): A map of tags to apply to all resources.
-Outputs:
-kubeconfig: The contents of the kubeconfig file needed to access the EKS cluster.
-config_map_aws_auth: The contents of the config-map-aws-auth ConfigMap needed to allow worker nodes to join the EKS cluster.
+terraform init also looks for module blocks in the configuration in the directory and then tracks down the source code for these modules based on arguments provided in source in the configuration. This builds out the module tree.
+
+terraform init finds and downloads those providers from either the public Terraform Registry or a third-party provider registry.In fact, this is the part that generates the .terraform.lock.hcl
+
+
+2.terraform plan
+
+The terraform plan command is used to create an execution plan. The plan will be used to see all the resources that are getting created/updated/deleted, before getting applied
+
+3.terraform apply
+
+The Terraform “apply” command is used to apply changes in the configuration. You’ll notice that the “apply” command shows you the same “plan” output and asks you to confirm if you want to proceed with this plan.
+
+The “-auto-approve” parameter will skip the confirmation for creating resources.
+
+![image](https://user-images.githubusercontent.com/20705864/226191959-1a9b21b3-1fce-4c54-afd0-d83397a16db5.png)
+
