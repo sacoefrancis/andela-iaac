@@ -6,7 +6,7 @@ locals {
         ami                         = "ami-0d81306eddc614a45"
         instance_type               = "t3a.medium"
         associate_public_ip_address = true
-        key_name                    = "dotsolvedkey"
+        key_name                    = "andela"
         Name                        = "bastion-instance-Dotsolved"
         subnet_id                   = "bastion_subnet"
         security_group_id           = "public_sg"
