@@ -66,3 +66,26 @@ The “-auto-approve” parameter will skip the confirmation for creating resour
 
 ![image](https://user-images.githubusercontent.com/20705864/226191959-1a9b21b3-1fce-4c54-afd0-d83397a16db5.png)
 
+Step 1:
+create bastion isnatnce (jump host) machine with vpc and required subnets and services needed
+/home/fjohn/andela-iaac/aws_vpc_bastion/terraform terraform init
+/home/fjohn/andela-iaac/aws_vpc_bastion/terraform terraform apply
+
+Step 2: 
+Move  folder modules, aws_eks_cluster, aws_rds to bastion instance from where we will be creation rest of aws components
+scp -pr  -i "andela.pem" /home/fjohn/Desktop/andela/aws_rds  ec2-user@ec2-0.0.0..ap-south-1.compute.amazonaws.com:/home/ec2-user/terraformscripts
+
+Step 3:
+Add aws confdiguration details in bastion instance 
+aws configure
+AWS Access Key ID [****************]: 
+AWS Secret Access Key [****************]: 
+Default region name [ap-souh-1]: 
+
+step 4:
+Now we can board aws eks clsuter
+/home/fjohn/andela-iaac/aws_eks_cluster/terraform
+we have env_specific_vars.tf modify the file according to the need
+
+Step 5: 
+Finally cluster is up 
