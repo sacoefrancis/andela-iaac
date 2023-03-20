@@ -2,6 +2,7 @@
 
 AWS EKS Cluster with Terraform
 Overview
+
 This Terraform module provides an example implementation of an Amazon Elastic Kubernetes Service (EKS) cluster. The module provisions the following resources:
 
 An Amazon EKS control plane
@@ -67,7 +68,7 @@ The “-auto-approve” parameter will skip the confirmation for creating resour
 ![image](https://user-images.githubusercontent.com/20705864/226191959-1a9b21b3-1fce-4c54-afd0-d83397a16db5.png)
 
 Step 1:
-create bastion isnatnce (jump host) machine with vpc and required subnets and services needed
+create bastion instance (jump host) machine with vpc and required subnets and services needed
 /home/fjohn/andela-iaac/aws_vpc_bastion/terraform terraform init
 /home/fjohn/andela-iaac/aws_vpc_bastion/terraform terraform apply
 
