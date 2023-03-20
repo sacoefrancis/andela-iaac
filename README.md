@@ -89,3 +89,5 @@ we have env_specific_vars.tf modify the file according to the need
 
 Step 5: 
 Finally cluster is up 
+
+![andela](https://user-images.githubusercontent.com/20705864/226265489-f5129dd5-c9ea-435b-8b5b-5e110b0112e9.png)
